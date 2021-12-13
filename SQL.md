@@ -153,22 +153,17 @@ CREATE table if not exists auteurs_externes_R_publications (
            on update cascade
 );
 ```
-
-## president_R_congres
+## Personnel_R_JPO Table
 ```sql
-CREATE table if not exists president_R_congres (
-    id_president integer not null,
-    id_congres integer not null,
-    PRIMARY KEY (id_president, id_congres),
-    CONSTRAINT fk_president
-      FOREIGN KEY (id_president)
-        REFERENCES president(id_president)
-          on delete cascade
-          on update cascade,
-   CONSTRAINT fk_congres
-       FOREIGN KEY (id_congres)
-            REFERENCES congres(id_congres)
-           on delete cascade
-           on update cascade
+CREATE TABLE Personnel_R_JPO(
+    ID_JPO INT,
+    ID_Personnel INT,
+    CONSTRAINT fk_jpo 
+        FOREIGN KEY(ID_JPO) 
+            REFERENCES JPO(ID_JPO) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_Personnel 
+        FOREIGN KEY(ID_Personnel) 
+            REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY(ID_JPO,ID_Personnel)
 );
 ```
