@@ -153,17 +153,21 @@ CREATE table if not exists auteurs_externes_R_publications (
            on update cascade
 );
 ```
-## Personnel_R_JPO Table
+## Projet_de_recherche_R_scientifique
 ```sql
-CREATE TABLE Personnel_R_JPO(
-    ID_JPO INT,
-    ID_Personnel INT,
-    CONSTRAINT fk_jpo 
-        FOREIGN KEY(ID_JPO) 
-            REFERENCES JPO(ID_JPO) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_Personnel 
-        FOREIGN KEY(ID_Personnel) 
-            REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE ON UPDATE CASCADE,
-    PRIMARY KEY(ID_JPO,ID_Personnel)
+CREATE table if not exists projet_de_recherche_R_scientifique (
+    id_projet_de_recherche int not null,
+    id_scientifique int not null,
+    PRIMARY KEY (id_projet_de_recherche, id_scientifique),
+    CONSTRAINT fk_projet_de_recherche
+      FOREIGN KEY (id_projet_de_recherche)
+        REFERENCES projet_de_recherche(id_projet)
+          on delete cascade
+          on update cascade,
+   CONSTRAINT fk_scientifique
+       FOREIGN KEY (id_scientifique)
+            REFERENCES scientifique(id_scientifique)
+           on delete cascade
+           on update cascade
 );
 ```
