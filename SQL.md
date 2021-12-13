@@ -47,8 +47,6 @@ CREATE TABLE Projet_De_Recherche(
         FOREIGN KEY (ID_PORTEUR)   
             REFERENCES porteur(Id_Porteur)
             );
-CREATE TABLE Projet_De_Recherche(ID_Projet SERIAL PRIMARY KEY, Titre TEXT NOT NULL, Acronyme TEXT , An_début DATE NOT NULL, Durée INT , Coût_Global INT , Budget INT NOT NULL, ID_Porteur INT NOT NULL, CONSTRAINT FK_PORTEUR FOREIGN KEY (ID_PORTEUR) REFERENCES porteur(Id_Porteur));
-
 ```
 ## Porteur table
 ```sql
