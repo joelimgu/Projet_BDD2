@@ -17,8 +17,8 @@ CREATE table Doctorant (
 CREATE TABLE Chercheur( 
     id_chercheur INT, 
     CONSTRAINT fk_chercheur 
-        FOREIGN KEY(ID_Chercheur) 
-        REFERENCES Scientifique(id_scientifique) ON DELETE CASCADE, 
-    PRIMARY KEY(ID_Chercheur)
+        FOREIGN KEY(id_chercheur) 
+        REFERENCES Scientifique(id_scientifique) ON DELETE CASCADE ON UPDATE CASCADE, 
+    PRIMARY KEY(id_chercheur)
 );
 ```
