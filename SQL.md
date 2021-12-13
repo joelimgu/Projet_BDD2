@@ -91,3 +91,17 @@ CREATE table if not exists partenaire (
     PRIMARY KEY (id_partenaire)
 );
 ```
+
+## Auteurs Externes Table
+```sql
+CREATE TABLE Auteurs_Externes(
+    ID_Auteur SERIAL PRIMARY KEY,
+    Nom VARCHAR(255) NOT NULL,
+    Prenom VARCHAR(255) NOT NULL,
+    Adresse_Mail VARCHAR(255) NOT NULL,
+    ID_Labo INT,
+    CONSTRAINT fk_auteur_externe
+        FOREIGN KEY(ID_Labo)
+        REFERENCES Laboratoires_externes(ID_Labo) ON DELETE CASCADE ON UPDATE CASCADE
+);
+```
