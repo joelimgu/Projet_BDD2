@@ -1,5 +1,20 @@
 
 # Tables
+## congres
+
+## etablissement
+
+## jpo
+
+## laboratoires_externes
+
+## personnel
+
+## president
+
+## publications
+
+
 ## Doctorants table
 ```sql
 CREATE table if not exists Doctorant (
