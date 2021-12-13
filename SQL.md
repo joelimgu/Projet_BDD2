@@ -65,10 +65,16 @@ CREATE TABLE PORTEUR(
 CREATE table if not exists chercheur_enseignant (
     id_chercheur_ens integer not null,
     echelon varchar(255) not null,
+    id_etablissement integer not null,
     PRIMARY KEY (id_chercheur_ens),
     CONSTRAINT fk_personnel
         FOREIGN KEY (id_chercheur_ens)
-            REFERENCES personnel(id_personnel)
+            REFERENCES scientifique(id_scientifique)
+            on delete cascade
+            on update cascade,
+    CONSTRAINT fk_etablissement
+        FOREIGN KEY (id_etablissement)
+            REFERENCES etablissement(id_etablissement)
             on delete cascade
             on update cascade
 );
@@ -137,6 +143,7 @@ CREATE TABLE Doctorant_R_Encadrant(
 );
 ```
 
+## Auteurs_externes_R_publications
 ## Auteurs_externes_R_publications
 ```sql
 CREATE table if not exists auteurs_externes_R_publications (
