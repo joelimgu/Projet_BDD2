@@ -1,6 +1,6 @@
 
 # Tables
-## congres
+## Congres
 ```sql
 create table congres
 (
@@ -13,7 +13,7 @@ create table congres
 );
 ```
 
-## etablissement
+## Etablissement
 ```sql
 create table etablissement
 (
@@ -24,7 +24,7 @@ create table etablissement
     acronyme         varchar(10)
 );
 ```
-## jpo
+## Jpo
 ```sql
 create table jpo
 (
@@ -34,7 +34,7 @@ create table jpo
     date_fin   date not null
 );
 ```
-## laboratoires_externes
+## Laboratoires_externes
 ```sql
 create table laboratoires_externes
 (
@@ -44,7 +44,7 @@ create table laboratoires_externes
     pays    text not null
 );
 ```
-## personnel
+## Personnel
 ```sql
 create table personnel
 (
@@ -57,7 +57,7 @@ create table personnel
     date_de_recrutement date not null
 );
 ```
-## president
+## President
 ```sql
 create table president
 (
@@ -69,7 +69,7 @@ create table president
 );
 ```
 
-## publications
+## Publications
 ```sql
 create table publications
 (
