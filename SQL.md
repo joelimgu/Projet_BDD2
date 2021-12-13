@@ -56,3 +56,13 @@ CREATE table if not exists chercheur_enseignant (
              on update cascade
 );
 ```
+
+## Encadrant
+```sql
+CREATE TABLE Encadrant(
+    id_encadrant INT PRIMARY KEY, 
+    CONSTRAINT fk_encadrant 
+        FOREIGN KEY(ID_Encadrant) 
+            REFERENCES Scientifique(ID_Scientifique) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
