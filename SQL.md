@@ -113,7 +113,7 @@ CREATE TABLE Publications_R_Personnel(
     PRIMARY KEY (ID_Publication,ID_Personnel), 
     CONSTRAINT fk_Publication 
         FOREIGN KEY(ID_Publication) 
-            REFERENCES Publications(ID_PublicationON DELETE CASCADE ON UPDATE CASCADE, 
+            REFERENCES Publications(ID_Publication)ON DELETE CASCADE ON UPDATE CASCADE, 
     CONSTRAINT fk_Personnel 
         FOREIGN KEY(ID_Personnel) 
             REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE ON UPDATE CASCADE
