@@ -80,4 +80,14 @@ CREATE TABLE Encadrant(
         FOREIGN KEY(ID_Encadrant) 
             REFERENCES Scientifique(ID_Scientifique) ON DELETE CASCADE ON UPDATE CASCADE
 );
+```
 
+## Partenaire
+```sql
+CREATE table if not exists partenaire (
+    id_partenaire serial not null,
+    nom varchar(255),
+    pays varchar(255),
+    PRIMARY KEY (id_partenaire)
+);
+```
