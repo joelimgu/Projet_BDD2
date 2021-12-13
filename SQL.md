@@ -12,3 +12,10 @@ CREATE table Doctorant (
            REFERENCES personnel(id_personnel)
 );
 ```
+CREATE TABLE Chercheur( 
+    id_chercheur INT, 
+    CONSTRAINT fk_chercheur 
+        FOREIGN KEY(ID_Chercheur) 
+        REFERENCES Scientifique(id_scientifique) ON DELETE CASCADE, 
+    PRIMARY KEY(ID_Chercheur)
+);
