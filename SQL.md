@@ -2,14 +2,16 @@
 # Tables
 ## Doctorants table
 ```sql
-CREATE table Doctorant (
-    id_doctorant serial,
+CREATE table if not exists Doctorant (
+    id_doctorant integer not null,
     date_debut_de_these date,
     date_de_soutenance date,
     PRIMARY KEY (id_doctorant),
     CONSTRAINT fk_personnel
-       FOREIGN KEY(id_doctorant)
-           REFERENCES personnel(id_personnel)
+     FOREIGN KEY(id_doctorant)
+         REFERENCES personnel(id_personnel)
+         on delete cascade
+         on update cascade
 );
 ```
 ## Scientifique table 
@@ -61,14 +63,14 @@ CREATE TABLE PORTEUR(
 ## Chercheur Enseignant
 ```sql
 CREATE table if not exists chercheur_enseignant (
-     id_chercheur_ens serial not null,
-     echelon varchar(255) not null,
-     PRIMARY KEY (id_chercheur_ens),
-     CONSTRAINT fk_personnel
-         FOREIGN KEY (id_chercheur_ens)
-             REFERENCES personnel(id_personnel)
-             on delete cascade
-             on update cascade
+    id_chercheur_ens integer not null,
+    echelon varchar(255) not null,
+    PRIMARY KEY (id_chercheur_ens),
+    CONSTRAINT fk_personnel
+        FOREIGN KEY (id_chercheur_ens)
+            REFERENCES personnel(id_personnel)
+            on delete cascade
+            on update cascade
 );
 ```
 
@@ -85,7 +87,7 @@ CREATE TABLE Encadrant(
 ## Partenaire
 ```sql
 CREATE table if not exists partenaire (
-    id_partenaire serial not null,
+    id_partenaire integer not null,
     nom varchar(255),
     pays varchar(255),
     PRIMARY KEY (id_partenaire)
