@@ -134,3 +134,22 @@ CREATE TABLE Doctorant_R_Encadrant(
     PRIMARY KEY(ID_Doctorant,ID_Encadrant)
 );
 ```
+
+## Auteurs_externes_R_publications
+```sql
+CREATE table if not exists auteurs_externes_R_publications (
+    id_publication serial not null,
+    id_auteur serial not null,
+    PRIMARY KEY (id_publication, id_auteur),
+    CONSTRAINT fk_publication
+      FOREIGN KEY (id_publication)
+        REFERENCES publications(id_publication)
+          on delete cascade
+          on update cascade,
+   CONSTRAINT fk_auteur
+       FOREIGN KEY (id_auteur)
+            REFERENCES auteurs_externes(id_auteur)
+           on delete cascade
+           on update cascade
+);
+```
