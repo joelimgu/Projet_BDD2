@@ -46,7 +46,7 @@ CREATE TABLE Projet_De_Recherche(
     CONSTRAINT FK_PORTEUR 
         FOREIGN KEY (ID_PORTEUR)   
             REFERENCES porteur(Id_Porteur)
-            );
+    );
 ```
 ## Porteur table
 ```sql
