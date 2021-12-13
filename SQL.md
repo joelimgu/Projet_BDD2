@@ -22,3 +22,17 @@ CREATE TABLE Chercheur(
     PRIMARY KEY(ID_Chercheur)
 );
 ```
+
+## Chercheur Enseignant
+```sql
+CREATE table if not exists chercheur_enseignant (
+     id_chercheur_ens serial not null,
+     echelon varchar(255) not null,
+     PRIMARY KEY (id_chercheur_ens),
+     CONSTRAINT fk_personnel
+         FOREIGN KEY (id_chercheur_ens)
+             REFERENCES personnel(id_personnel)
+             on delete cascade
+             on update cascade
+);
+```
