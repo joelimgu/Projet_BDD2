@@ -155,21 +155,20 @@ CREATE table if not exists auteurs_externes_R_publications (
            on update cascade
 );
 ```
-
-## president_R_congres
+## Projet_de_recherche_R_scientifique
 ```sql
-CREATE table if not exists president_R_congres (
-    id_president integer not null,
-    id_congres integer not null,
-    PRIMARY KEY (id_president, id_congres),
-    CONSTRAINT fk_president
-      FOREIGN KEY (id_president)
-        REFERENCES president(id_president)
+CREATE table if not exists projet_de_recherche_R_scientifique (
+    id_projet_de_recherche int not null,
+    id_scientifique int not null,
+    PRIMARY KEY (id_projet_de_recherche, id_scientifique),
+    CONSTRAINT fk_projet_de_recherche
+      FOREIGN KEY (id_projet_de_recherche)
+        REFERENCES projet_de_recherche(id_projet)
           on delete cascade
           on update cascade,
-   CONSTRAINT fk_congres
-       FOREIGN KEY (id_congres)
-            REFERENCES congres(id_congres)
+   CONSTRAINT fk_scientifique
+       FOREIGN KEY (id_scientifique)
+            REFERENCES scientifique(id_scientifique)
            on delete cascade
            on update cascade
 );
