@@ -15,3 +15,10 @@ CREATE table if not exists Doctorant (
              on update cascade
 );
 ```
+CREATE TABLE Chercheur( 
+    id_chercheur INT, 
+    CONSTRAINT fk_chercheur 
+        FOREIGN KEY(ID_Chercheur) 
+        REFERENCES Scientifique(id_scientifique) ON DELETE CASCADE, 
+    PRIMARY KEY(ID_Chercheur)
+);
