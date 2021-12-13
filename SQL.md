@@ -48,7 +48,7 @@ CREATE TABLE Projet_De_Recherche(
     ID_Porteur INT NOT NULL, 
     CONSTRAINT FK_PORTEUR 
         FOREIGN KEY (ID_PORTEUR)   
-            REFERENCES porteur(Id_Porteur)
+            REFERENCES porteur(Id_Porteur) ON DELETE CASCADE ON UPDATE CASCADE
     );
 ```
 ## Porteur table
