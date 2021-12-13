@@ -1,19 +1,87 @@
 
 # Tables
 ## congres
+```sql
+create table congres
+(
+    id_congres     serial
+        primary key,
+    nb_participant integer    not null,
+    classe         varchar(2) not null,
+    date_debut     date       not null,
+    date_fin       date       not null
+);
+```
 
 ## etablissement
-
+```sql
+create table etablissement
+(
+    id_etablissement serial
+        primary key,
+    nom              text not null,
+    adresse          text not null,
+    acronyme         varchar(10)
+);
+```
 ## jpo
-
+```sql
+create table jpo
+(
+    id_jpo     serial
+        primary key,
+    date_debut date not null,
+    date_fin   date not null
+);
+```
 ## laboratoires_externes
-
+```sql
+create table laboratoires_externes
+(
+    id_labo serial
+        primary key,
+    nom     text not null,
+    pays    text not null
+);
+```
 ## personnel
-
+```sql
+create table personnel
+(
+    id_personnel        serial
+        primary key,
+    nom                 text not null,
+    prenom              text not null,
+    date_de_naissance   date not null,
+    adresse             text not null,
+    date_de_recrutement date not null
+);
+```
 ## president
+```sql
+create table president
+(
+    id_president integer not null
+        primary key
+        constraint fk_president
+        references scientifique
+        on delete cascade
+);
+```
 
 ## publications
-
+```sql
+create table publications
+(
+    id_publication          serial
+        primary key,
+    titre                   text       not null,
+    annee_de_publication    date       not null,
+    nom_de_la_conférence    text       not null,
+    classe_de_la_conférence varchar(2) not null,
+    nb_de_pages             integer    not null
+);
+```
 
 ## Doctorants table
 ```sql
