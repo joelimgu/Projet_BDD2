@@ -24,6 +24,15 @@ CREATE TABLE scientifique(
                 REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE ON UPDATE CASCADE
             );
 ```
+## Scientifique table 
+```sql
+    CREATE TABLE President(
+    ID_President INT PRIMARY KEY,  
+    Constraint fk_president 
+        FOREIGN KEY (ID_president) 
+           REFERENCES scientifique(id_scientifique) ON DELETE CASCADE);
+```
+
 ## Chercheur table 
 ```sql
 CREATE TABLE Chercheur( 
