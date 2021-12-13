@@ -34,6 +34,7 @@ CREATE TABLE Chercheur(
     PRIMARY KEY(id_chercheur)
 );
 ```
+
 ## Projet de recherche table 
 ```sql
 CREATE TABLE Projet_De_Recherche(
@@ -171,5 +172,19 @@ CREATE table if not exists projet_de_recherche_R_scientifique (
             REFERENCES scientifique(id_scientifique)
            on delete cascade
            on update cascade
+);
+```
+## Projet_de_Recherche_R_Partenaires Table
+```sql
+CREATE TABLE Projet_de_Recherche_R_Partenaires(
+    ID_Projet INT,
+    ID_Partenaire INT,
+    CONSTRAINT fk_projet 
+        FOREIGN KEY(ID_Projet) 
+            REFERENCES Projet_de_Recherche(ID_Projet) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_partenaire 
+        FOREIGN KEY(ID_Partenaire) 
+            REFERENCES Partenaire(ID_Partenaire) ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY(ID_Projet,ID_Partenaire)
 );
 ```
