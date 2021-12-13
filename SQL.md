@@ -105,3 +105,17 @@ CREATE TABLE Auteurs_Externes(
         REFERENCES Laboratoires_externes(ID_Labo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 ```
+## Publications-Personnel Table
+```sql
+CREATE TABLE Publications_R_Personnel(
+    ID_Publication INT NOT NULL, 
+    ID_Personnel INT NOT NULL, 
+    PRIMARY KEY (ID_Publication,ID_Personnel), 
+    CONSTRAINT fk_Publication 
+        FOREIGN KEY(ID_Publication) 
+            REFERENCES Publications(ID_Publication), 
+    CONSTRAINT fk_Personnel 
+        FOREIGN KEY(ID_Personnel) 
+            REFERENCES Personnel(ID_Personnel) 
+            );
+```
