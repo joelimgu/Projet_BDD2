@@ -117,5 +117,20 @@ CREATE TABLE Publications_R_Personnel(
     CONSTRAINT fk_Personnel 
         FOREIGN KEY(ID_Personnel) 
             REFERENCES Personnel(ID_Personnel) 
-            );
+);
+```
+
+## Doctorant-Encadrant Table
+```sql
+CREATE TABLE Doctorant_R_Encadrant(
+    ID_Doctorant INT, 
+    ID_Encadrant INT,
+    CONSTRAINT fk_Doctorant 
+        FOREIGN KEY(ID_Doctorant) 
+            REFERENCES Doctorant(ID_Doctorant) ON DELETE CASCADE ON UPDATE CASCADE, 
+    CONSTRAINT fk_Encadrant 
+        FOREIGN KEY(ID_Encadrant)   
+            REFERENCES Encadrant(ID_Encadrant) ON DELETE CASCADE ON UPDATE CASCADE, 
+    PRIMARY KEY(ID_Doctorant,ID_Encadrant)
+);
 ```
