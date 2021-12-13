@@ -153,3 +153,22 @@ CREATE table if not exists auteurs_externes_R_publications (
            on update cascade
 );
 ```
+
+## president_R_congres
+```sql
+CREATE table if not exists president_R_congres (
+    id_president integer not null,
+    id_congres integer not null,
+    PRIMARY KEY (id_president, id_congres),
+    CONSTRAINT fk_president
+      FOREIGN KEY (id_president)
+        REFERENCES president(id_president)
+          on delete cascade
+          on update cascade,
+   CONSTRAINT fk_congres
+       FOREIGN KEY (id_congres)
+            REFERENCES congres(id_congres)
+           on delete cascade
+           on update cascade
+);
+```
