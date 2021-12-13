@@ -107,7 +107,7 @@ CREATE TABLE scientifique(
                 REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE ON UPDATE CASCADE
             );
 ```
-## Scientifique table 
+## President table 
 ```sql
     CREATE TABLE President(
     ID_President INT PRIMARY KEY,  
