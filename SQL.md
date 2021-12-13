@@ -12,6 +12,15 @@ CREATE table Doctorant (
            REFERENCES personnel(id_personnel)
 );
 ```
+## Scientifique table 
+```sql
+CREATE TABLE scientifique(
+    ID_Scientifique INT PRIMARY KEY, 
+       grade VARCHAR(2), 
+       CONSTRAINT fk_scientifique FOREIGN KEY(ID_Scientifique) 
+            REFERENCES Personnel(ID_Personnel) ON DELETE CASCADE
+            );
+```
 ## Chercheur table 
 ```sql
 CREATE TABLE Chercheur( 
