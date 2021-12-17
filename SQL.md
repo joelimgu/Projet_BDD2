@@ -7,7 +7,7 @@ create table congres
     id_congres     serial
         primary key,
     nb_participant integer    not null,
-    classe         varchar(2) not null,
+    classe         varchar(15) not null,
     date_debut     date       not null,
     date_fin       date       not null
 );
@@ -279,4 +279,15 @@ CREATE TABLE Projet_de_Recherche_R_Partenaires(
             REFERENCES Partenaire(ID_Partenaire) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY(ID_Projet,ID_Partenaire)
 );
+```
+
+
+# Requests
+### 1. 
+Le nom et le grade des encadrants du doctorant dont l'identifiant est 1
+```sql
+select nom, grade from doctorant_r_encadrant
+join scientifique on id_scientifique = id_encadrant
+join personnel on id_personnel = id_encadrant
+where id_doctorant = 1;
 ```
