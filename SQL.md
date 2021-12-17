@@ -290,6 +290,7 @@ select nom, grade from doctorant_r_encadrant
 join scientifique on id_scientifique = id_encadrant
 join personnel on id_personnel = id_encadrant
 where id_doctorant = 1;
+```
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
