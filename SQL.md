@@ -317,6 +317,18 @@ join auteurs_externes ae on ae.id_auteur = aerp.id_auteur
 where per.id_personnel = 18;
 ```
 
+### 4.
+Le nombre de pays avec lesquels le LAAS a collaboré dans le cadre de
+publications de rang A (i.e., des articles publiés dans des conférences
+de classe A)
+```sql
+select count(DISTINCT pays) from publications
+right join auteurs_externes_r_publications aerp on publications.id_publication = aerp.id_publication
+join auteurs_externes ae on aerp.id_auteur = ae.id_auteur
+join laboratoires_externes le on ae.id_labo = le.id_labo
+where publications.classe_de_la_conférence = 'A';
+```
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
