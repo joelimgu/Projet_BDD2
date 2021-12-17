@@ -306,6 +306,17 @@ where per.nom = 'Azi'
   and annee_de_publication <= '2020-01-01';
 ```
 
+### 3.
+Le nombre de collaborateurs total du chercheur dont l'ID est 18
+```sql
+select count(ae.nom) from personnel as per
+join publications_r_personnel prp on per.id_personnel = prp.id_personnel
+join publications pub on pub.id_publication = prp.id_publication
+right join auteurs_externes_r_publications aerp on pub.id_publication = aerp.id_publication
+join auteurs_externes ae on ae.id_auteur = aerp.id_auteur
+join laboratoires_externes le on ae.id_labo = le.id_labo
+where per.id_personnel = 18;
+```
 
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
