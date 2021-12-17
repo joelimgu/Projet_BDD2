@@ -314,7 +314,6 @@ join publications_r_personnel prp on per.id_personnel = prp.id_personnel
 right join publications pub on pub.id_publication = prp.id_publication
 right join auteurs_externes_r_publications aerp on pub.id_publication = aerp.id_publication
 join auteurs_externes ae on ae.id_auteur = aerp.id_auteur
-join laboratoires_externes le on ae.id_labo = le.id_labo
 where per.id_personnel = 18;
 ```
 
