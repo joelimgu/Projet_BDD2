@@ -291,6 +291,22 @@ join scientifique on id_scientifique = id_encadrant
 join personnel on id_personnel = id_encadrant
 where id_doctorant = 1;
 ```
+### 2.
+Le nom et le pays des auteurs collaborateurs (auteurs externes) du chercheur "Jean Azi" de 2016 à 2020
+```sql
+select ae.nom, ae.prenom, le.pays from personnel as per
+join publications_r_personnel prp on per.id_personnel = prp.id_personnel
+join publications pub on pub.id_publication = prp.id_publication
+right join auteurs_externes_r_publications aerp on pub.id_publication = aerp.id_publication
+join auteurs_externes ae on ae.id_auteur = aerp.id_auteur
+join laboratoires_externes le on ae.id_labo = le.id_labo
+where per.nom = 'Azi' 
+  and per.prenom = 'Jean' 
+  and annee_de_publication >= '2016-01-01' 
+  and annee_de_publication <= '2020-01-01';
+```
+
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
@@ -299,3 +315,4 @@ join Personnel on id_personnel=id_doctorant
 group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
 ```
+
