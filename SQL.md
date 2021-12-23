@@ -340,6 +340,12 @@ join publications pub on pub.id_publication = pubrper.id_publication
 group by id_doctorant, nom, prenom
 ```
 
+### 6.
+Le nombre de doctorants du laboratoire ayant soutenu
+```sql
+select count(*) from doctorant
+where date_de_soutenance is not null;
+```
 
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
