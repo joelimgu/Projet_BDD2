@@ -329,6 +329,18 @@ join laboratoires_externes le on ae.id_labo = le.id_labo
 where publications.classe_de_la_conférence = 'A';
 ```
 
+### 5.
+Pour les doctorants, on souhaiterait récupérer le nombre de leurs publications. On veut retourner l'identifiant des 
+doctorants accompagné du nombre de leur publication.
+```sql
+select id_doctorant, nom, prenom, count(*) as nombre_de_publications from doctorant
+join personnel per on Doctorant.id_doctorant = per.id_personnel
+join publications_r_personnel pubrper on id_doctorant = pubrper.id_personnel
+join publications pub on pub.id_publication = pubrper.id_publication
+group by id_doctorant, nom, prenom
+```
+
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
