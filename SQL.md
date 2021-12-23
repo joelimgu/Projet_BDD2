@@ -364,6 +364,17 @@ where id_chercheur not in (select * from encadrant)
 and id_chercheur not in (select id_personnel from publications_r_personnel);
 ```
 
+### 9.
+Le nom et prénom des chercheurs qui encadrent mais n’ont pas de doctorants ayant déjà soutenu
+⚠ Ce ne montre pas les encadrants qui n'ont pas de doctorant, mais cela ne devrait pas arriver.
+```sql
+select nom, prenom from encadrant
+join doctorant_r_encadrant dre on encadrant.id_encadrant = dre.id_encadrant
+join Doctorant D on dre.id_doctorant = D.id_doctorant
+join personnel P on encadrant.id_encadrant = P.id_personnel
+where date_de_soutenance is null;
+```
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
