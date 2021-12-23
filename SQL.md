@@ -355,6 +355,15 @@ join personnel per on id_chercheur = per.id_personnel
 where id_chercheur not in (select * from encadrant);
 ```
 
+### 8.
+Le nom et le prénom des chercheurs qui n’ont jamais publié ni encadré
+```sql
+select nom, prenom from chercheur
+join personnel on id_personnel = id_chercheur
+where id_chercheur not in (select * from encadrant)
+and id_chercheur not in (select id_personnel from publications_r_personnel);
+```
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
