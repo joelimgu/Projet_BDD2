@@ -347,6 +347,14 @@ select count(*) from doctorant
 where date_de_soutenance is not null;
 ```
 
+### 7.
+Le nom et le prénom des chercheurs qui n’ont jamais encadré
+```sql
+select nom, prenom from chercheur
+join personnel per on id_chercheur = per.id_personnel
+where id_chercheur not in (select * from encadrant);
+```
+
 ### 10.
 L'identifiant,le nom et le prénom des doctorants avec un encadrant
 ```sql
