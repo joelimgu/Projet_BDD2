@@ -420,7 +420,24 @@ HAVING count(*) = (
 ); 
 ```
 
-### 21.
+### 19.
+Les établissements d'enseignements ayant plus de 50 enseignants-chercheurs appartenant au LAAS
+```sql
+SELECT nom, count(*) nb_chercheur 
+FROM Etablissement 
+JOIN Chercheur_enseignant on Chercheur_enseignant.id_etablissement=Etablissement.Id_Etablissement 
+GROUP BY nom 
+HAVING count(*)>50;
+```
+
+### 20.
+Les scientifiques qui ont le plus de projets 
+```sql
+
+```
+
+### .21
+Les pays qui sont impliqués dans tous les projets 
 ```sql
 SELECT pays, count(*) nb_projet_diff 
 FROM  (
