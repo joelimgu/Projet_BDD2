@@ -406,7 +406,7 @@ GROUP BY Nom, prenom, scientifique.id_scientifique
 HAVING count(*) = 1; 
 ```
 
-### .18
+### 18.
 Les scientifiques qui auraient participé à tous les projets
 ```sql
 SELECT Nom,prenom,scientifique.id_scientifique, count(*) Nombre_Projet 
@@ -420,7 +420,7 @@ HAVING count(*) = (
 ); 
 ```
 
-### .21
+### 21.
 ```sql
 SELECT pays, count(*) nb_projet_diff 
 FROM  (
