@@ -384,3 +384,13 @@ group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
 ```
 
+### 16.
+Le pays avec lequel le laboratoire a plus de publications
+```sql
+SELECT pays, count(*) nombre_publication 
+FROM Laboratoires_externes 
+JOIN Auteurs_Externes on Auteurs_Externes.ID_Labo = Laboratoires_Externes.ID_Labo 
+JOIN Auteurs_Externes_R_Publications on Auteurs_Externes_R_publications.id_auteur = auteurs_externes.id_auteur 
+GROUP BY pays
+ORDER BY nombre_publication DESC LIMIT 1;
+```
