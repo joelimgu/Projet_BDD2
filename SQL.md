@@ -405,3 +405,17 @@ JOIN Projet_de_recherche_R_scientifique on Projet_de_recherche_R_scientifique.id
 GROUP BY Nom, prenom, scientifique.id_scientifique
 HAVING count(*) = 1; 
 ```
+
+### .18
+Les scientifiques qui auraient participé à tous les projets
+```sql
+SELECT Nom,prenom,scientifique.id_scientifique, count(*) Nombre_Projet 
+FROM personnel 
+JOIN Scientifique on Scientifique.id_scientifique = personnel.id_personnel 
+JOIN Projet_de_recherche_R_scientifique on Projet_de_recherche_R_scientifique.id_scientifique = scientifique.id_scientifique 
+GROUP BY Nom, prenom, scientifique.id_scientifique
+HAVING count(*) = (
+	SELECT count(*) 
+	FROM PROJET_de_Recherche
+); 
+```
