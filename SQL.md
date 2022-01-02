@@ -394,3 +394,14 @@ JOIN Auteurs_Externes_R_Publications on Auteurs_Externes_R_publications.id_auteu
 GROUP BY pays
 ORDER BY nombre_publication DESC LIMIT 1;
 ```
+
+### 17.
+Les scientifiques qui ont un seul projet
+````sql
+SELECT Nom,prenom,scientifique.id_scientifique, count(*) Nombre_Projet 
+FROM personnel 
+JOIN Scientifique on Scientifique.id_scientifique = personnel.id_personnel 
+JOIN Projet_de_recherche_R_scientifique on Projet_de_recherche_R_scientifique.id_scientifique = scientifique.id_scientifique 
+GROUP BY Nom, prenom, scientifique.id_scientifique
+HAVING count(*) = 1; 
+```
