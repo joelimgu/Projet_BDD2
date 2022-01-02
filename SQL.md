@@ -397,7 +397,7 @@ ORDER BY nombre_publication DESC LIMIT 1;
 
 ### 17.
 Les scientifiques qui ont un seul projet
-````sql
+```sql
 SELECT Nom,prenom,scientifique.id_scientifique, count(*) Nombre_Projet 
 FROM personnel 
 JOIN Scientifique on Scientifique.id_scientifique = personnel.id_personnel 
