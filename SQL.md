@@ -419,3 +419,17 @@ HAVING count(*) = (
 	FROM PROJET_de_Recherche
 ); 
 ```
+
+### .21
+```sql
+SELECT pays, count(*) nb_projet_diff 
+FROM  (
+	     SELECT pays, id_projet 
+	     From Partenaire 
+	     JOIN projet_de_recherche_R_partenaires on projet_de_recherche_R_partenaires.id_partenaire = partenaire.id_partenaire 
+	    GROUP BY pays,id_projet) as Proj 
+GROUP BY pays HAVING count(*) = ( 
+ 	SELECT count(*) 
+	 FROM PROJET_de_Recherche
+);
+```
