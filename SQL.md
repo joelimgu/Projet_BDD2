@@ -403,7 +403,14 @@ Natural Join publications_r_personnel prp
 where prp.id_personnel in (select id_chercheur from chercheur) and pu.classe_de_la_conférence='A';
 ```
 
-
+## 13.
+Nom, prénom et identifiant des chercheurs qui auraient été encadrants de tous les doctorants
+```sql
+SELECT id_personnel, nom, prenom, nb_doctorants from (SELECT id_encadrant, count(*) as nb_doctorants FROM doctorant_r_encadrant
+group by id_encadrant) as C
+join personnel on C.id_encadrant = personnel.id_personnel
+where nb_doctorants >= 4 and nb_doctorants = (select count(*) from doctorant);
+```
 ### 15.
 Le nombre d'enseignants chercheurs par établissement d'enseignement 
 ```sql
