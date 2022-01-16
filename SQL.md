@@ -384,7 +384,7 @@ group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
 ### 
 ```
-12.
+### 12.
 L'identifiant des chercheurs qui n'ont publié que dans des conférences de classe A
 ```sql
 SELECT prp.id_personnel FROM publications pu
@@ -394,7 +394,7 @@ where prp.id_personnel in (select id_chercheur from chercheur) and pu.classe_de_
 
 
 ### 15.
-L'identifiant,le nom et le prénom des doctorants avec un encadrant
+Le nombre d'enseignants chercheurs par établissement d'enseignement 
 ```sql
 SELECT count(Distinct id_chercheur_ens) FROM chercheur_enseignant
 GROUP BY (id_etablissement)
