@@ -433,7 +433,12 @@ HAVING count(*)>50;
 ### 20.
 Les scientifiques qui ont le plus de projets 
 ```sql
-
+SELECT id_scientifique, count(id_projet_de_recherche) 
+FROM projet_de_recherche_R_scientifique 
+GROUP BY id_scientifique HAVING count(id_projet_de_recherche) = ( SELECT MAX(nb_projet) 
+                                                                  FROM ( SELECT id_scientifique, count(id_projet_de_recherche) nb_projet  
+								         FROM projet_de_recherche_R_scientifique 
+									 GROUP BY id_scientifique) sq);
 ```
 
 ### .21
