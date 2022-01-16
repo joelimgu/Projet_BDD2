@@ -384,6 +384,17 @@ group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
 ### 
 ```
+
+### 11. 
+Les chercheurs qui ont plus de 4 doctorants en cours. Pour chaque chercheur, on veut afficher 
+son identifiant, nom, prenom, et nombre de ses doctorants
+```sql
+SELECT id_personnel, nom, prenom, nb_doctorants from (SELECT id_encadrant, count(*) as nb_doctorants FROM doctorant_r_encadrant
+group by id_encadrant) as C
+join personnel on C.id_encadrant = personnel.id_personnel
+where nb_doctorants >= 4;
+```
+
 ### 12.
 L'identifiant des chercheurs qui n'ont publié que dans des conférences de classe A
 ```sql
