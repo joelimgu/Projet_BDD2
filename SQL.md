@@ -383,7 +383,21 @@ join Personnel on id_personnel=id_doctorant
 group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
 ```
+### 15.
+L'identifiant,le nom et le prénom des doctorants avec un encadrant
+```sql
+SELECT prp.id_personnel FROM publications pu
+Natural Join publications_r_personnel prp
+where prp.id_personnel in (select id_chercheur from chercheur) and pu.classe_de_la_conférence='A';
+```
 
+
+### 15.
+L'identifiant,le nom et le prénom des doctorants avec un encadrant
+```sql
+SELECT count(Distinct id_chercheur_ens) FROM chercheur_enseignant
+GROUP BY (id_etablissement)
+```
 ### 16.
 Le pays avec lequel le laboratoire a plus de publications
 ```sql
@@ -433,12 +447,7 @@ HAVING count(*)>50;
 ### 20.
 Les scientifiques qui ont le plus de projets 
 ```sql
-SELECT id_scientifique, count(id_projet_de_recherche) 
-FROM projet_de_recherche_R_scientifique 
-GROUP BY id_scientifique HAVING count(id_projet_de_recherche) = ( SELECT MAX(nb_projet) 
-                                                                  FROM ( SELECT id_scientifique, count(id_projet_de_recherche) nb_projet  
-								         FROM projet_de_recherche_R_scientifique 
-									 GROUP BY id_scientifique) sq);
+
 ```
 
 ### .21
