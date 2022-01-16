@@ -382,9 +382,10 @@ select id_doctorant,nom,prenom, count(*) from doctorant_r_encadrant
 join Personnel on id_personnel=id_doctorant
 group by id_doctorant,nom,prenom
 having count(distinct id_encadrant)=1;
+### 
 ```
-### 15.
-L'identifiant,le nom et le prénom des doctorants avec un encadrant
+12.
+L'identifiant des chercheurs qui n'ont publié que dans des conférences de classe A
 ```sql
 SELECT prp.id_personnel FROM publications pu
 Natural Join publications_r_personnel prp
